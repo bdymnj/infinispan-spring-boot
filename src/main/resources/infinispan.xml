@@ -7,6 +7,11 @@
     <cache-container default-cache="basque-names">
         <transport stack="external-file" />
         <jmx domain="infinispan.embedded.example" />
-        <distributed-cache name="basque-names" statistics="true" />
+        <distributed-cache name="basque-names" statistics="true" mode="SYNC">
+            <memory>
+                <object size="35" />
+            </memory>
+            <expiration lifespan="60000" interval="1000" />
+        </distributed-cache>
     </cache-container>
 </infinispan>
